@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.5'
 # Use mysql as the database for Active Record
-
+ruby '2.1.2'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -42,3 +42,4 @@ gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',  :gi
 gem 'roo'
  gem 'spreadsheet', '1.0.8'
 gem 'roo-xls'
+gem 'rails_12factor'
