@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  vet_last_name: MyString
+  vet_first_name: MyString
+  dob: 2015-11-26
+  ssn: MyString
+  facility_name: MyString
+  facility_type_desc: MyString
+  vha_eligibility: MyString
+  vash_program: MyString
+  vash_application_received: 2015-11-26
+  vash_voucher_recieved_date: 2015-11-26
+  vash_exp_date: 2015-11-26
+  vash_comments: MyText
+  ssvf_assigned_provider: MyString
+  housing_plan: MyString
+  apartment_source: MyString
+
+two:
+  vet_last_name: MyString
+  vet_first_name: MyString
+  dob: 2015-11-26
+  ssn: MyString
+  facility_name: MyString
+  facility_type_desc: MyString
+  vha_eligibility: MyString
+  vash_program: MyString
+  vash_application_received: 2015-11-26
+  vash_voucher_recieved_date: 2015-11-26
+  vash_exp_date: 2015-11-26
+  vash_comments: MyText
+  ssvf_assigned_provider: MyString
+  housing_plan: MyString
+  apartment_source: MyString

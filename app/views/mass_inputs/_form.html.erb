@@ -1,0 +1,119 @@
+<% if @mass_input.new_record? %>
+  <% method_name = 'create' %>
+<% else %>
+  <% method_name = 'update' %>
+<% end %>
+<%= form_for @mass_input, url: {action: method_name.to_sym, id: @mass_input.try(:id) }, html: {class: 'form-horizontal'} do |f| %>
+  <div class="form-group col-sm-6">
+    <%= f.label :vet_last_name, 'VET Last Name', class: 'col-sm-4 control-label' %>
+    <div class="col-sm-8">
+      <%= f.text_field :vet_last_name, placeholder: 'VET Last Name', class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group col-sm-6">
+    <%= f.label :vet_first_name, 'VET First Name', class: 'col-sm-4 control-label' %>
+    <div class="col-sm-8">
+      <%= f.text_field :vet_first_name, placeholder: 'VET First Name', class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group col-sm-6">
+    <%= f.label :dob, 'Date of Birth', class: 'col-sm-4 control-label' %>
+    <div class="col-sm-8">
+      <%= f.text_field :dob, placeholder: 'Date of Birth', class: 'form-control datepicker', 'data-date-format'=>"dd/mm/yyyy" %>
+    </div>
+  </div>
+  <div class="form-group col-sm-6">
+    <%= f.label :ssn, 'SSN', class: 'col-sm-4 control-label' %>
+    <div class="col-sm-8">
+      <%= f.text_field :ssn, placeholder: 'SSN', class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group col-sm-6">
+    <%= f.label :facility_name, 'Facility Name', class: 'col-sm-4 control-label' %>
+    <div class="col-sm-8">
+      <%= f.text_field :facility_name, placeholder: 'Facility Name', class: 'form-control' %>
+    </div>
+  </div>
+ 
+  <div class="form-group col-sm-6">
+    <%= f.label :facility_type_desc, 'Facility Type Desc', class: 'col-sm-4 control-label' %>
+    <div class="col-sm-8">      
+      <%= f.select(:facility_type_desc, Massinput::FACILITY_TYPE.collect {|p| [ p, p ] }, { include_blank: true}, {class: 'form-control' }) %>
+    </div>
+  </div>
+
+  <div class="form-group col-sm-6">
+    <%= f.label :vha_eligibility, 'VHA Eligibility', class: 'col-sm-4 control-label' %>
+    <div class="col-sm-8">
+      <%= f.text_field :vha_eligibility, placeholder: 'VHA Eligibility', class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group col-sm-6">
+    <%= f.label :vash_program, 'VASH Program', class: 'col-sm-4 control-label' %>
+    <div class="col-sm-8">
+      <%= f.text_field :vash_program, placeholder: 'VASH Program', class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group col-sm-6">
+    <%= f.label :vash_application_received, 'VASH App. Received', class: 'col-sm-4 control-label' %>
+    <div class="col-sm-8">
+      <%= f.text_field :vash_application_received, placeholder: 'VASH Application Received', class: 'form-control datepicker', 'data-date-format'=>"dd/mm/yyyy" %>
+    </div>
+  </div>
+
+  <div class="form-group col-sm-6">
+    <%= f.label :vash_voucher_recieved_date, 'VASH Voucher Received Date', class: 'col-sm-4 control-label' %>
+    <div class="col-sm-8">
+      <%= f.text_field :vash_voucher_recieved_date, placeholder: 'VASH Voucher Received Date', class: 'form-control datepicker', 'data-date-format'=>"dd/mm/yyyy" %>
+    </div>
+  </div>
+
+  <div class="form-group col-sm-6">
+    <%= f.label :vash_exp_date, 'VASH Exp. Date', class: 'col-sm-4 control-label' %>
+    <div class="col-sm-8">
+      <%= f.text_field :vash_exp_date, placeholder: 'VASH Exp. Date', class: 'form-control datepicker', 'data-date-format'=>"dd/mm/yyyy" %>
+    </div>
+  </div>
+
+  <div class="form-group col-sm-6">
+    <%= f.label :vash_comments, 'VASH Comments', class: 'col-sm-4 control-label' %>
+    <div class="col-sm-8">
+      <%= f.text_field :vash_comments, placeholder: 'VASH Comments', class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group col-sm-6">
+    <%= f.label :ssvf_assigned_provider, 'SSVF Assigned Provider', class: 'col-sm-4 control-label' %>
+    <div class="col-sm-8">
+      <%= f.text_field :ssvf_assigned_provider, placeholder: 'SSVF Assigned Provider', class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group col-sm-6">
+    <%= f.label :housing_plan, 'Housing Plan', class: 'col-sm-4 control-label' %>
+    <div class="col-sm-8">
+      <%= f.text_field :housing_plan, placeholder: 'Housing Plan', class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group col-sm-6">
+    <%= f.label :apartment_source, 'Apartment Source', class: 'col-sm-4 control-label' %>
+    <div class="col-sm-8">
+      <%= f.text_field :apartment_source, placeholder: 'Apartment Source', class: 'form-control' %>
+    </div>
+  </div>
+
+  
+  <div class="form-group col-sm-12">
+    <hr>
+    <label class='col-sm-2 control-label'>&nbsp;</label>
+    <div class="col-sm-8">
+      <%= f.submit :class => 'button btn btn-default', :data => {:disable_with => 'Please Wait...'} %>
+      <%= link_to 'Cancel', mass_inputs_path, class: 'btn btn-danger' %>
+    </div>
+  </div>
+
+<% end %>

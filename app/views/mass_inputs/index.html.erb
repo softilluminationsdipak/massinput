@@ -1,0 +1,62 @@
+<h1> 
+	MassInput
+	<small class='pull-right'>
+		<%= link_to 'Add New MassInput', new_mass_input_path, class: 'btn btn-sm btn-primary' %>
+	</small>
+</h1>
+<%= form_for Massinput.new, url: import_mass_inputs_path do |f| %>
+	<%= f.file_field :file %>
+	<%= f.submit :class => 'button btn btn-default', :data => {:disable_with => 'Please Wait...'} %>
+<% end %>
+<hr>
+<div class='col-sm-12 overflow'>
+	<% if @mass_inputs.present? %>
+		<table class="table">
+			<thead>
+				<th>VET Last Name</th>
+				<th>VET First Name</th>
+				<th>DOB</th>
+				<th>SSN</th>
+				<th>Facility Name</th>
+				<th>Facility Type Desc</th>
+				<th>VHA Eligibility</th>
+				<th>VASH Program</th>
+				<th>VASH Application Received</th>
+				<th>VASH Voucher Recieved Date</th>
+				<th>VASH Exp. Date</th>
+				<th>VASH Comments</th>
+				<th>SSVF Assigned Provider</th>
+				<th>Housing Plan</th>
+				<th>Apartment Source</th>
+				<th>Actions</th>
+			</thead>
+			<tbody>
+				<% @mass_inputs.each do |mass_input| %>
+					<tr>
+						<td> <%= mass_input.vet_last_name %></td>
+						<td> <%= mass_input.vet_first_name %></td>
+						<td> <%= mass_input.dob.strftime('%d/%m/%Y') if mass_input.dob.present? %></td>
+						<td> <%= mass_input.ssn %></td>
+						<td> <%= mass_input.facility_name %></td>
+						<td> <%= mass_input.facility_type_desc %></td>
+						<td> <%= mass_input.vha_eligibility %></td>
+						<td> <%= mass_input.vash_program %></td>
+						<td> <%= mass_input.vash_application_received.strftime('%d/%m/%Y') if mass_input.vash_application_received %></td>
+						<td> <%= mass_input.vash_voucher_recieved_date.strftime('%d/%m/%Y') if mass_input.vash_voucher_recieved_date %></td>
+						<td> <%= mass_input.vash_exp_date.strftime('%d/%m/%Y') if mass_input.vash_exp_date %> </td>
+						<td> <%= mass_input.vash_comments %> </td>
+						<td> <%= mass_input.ssvf_assigned_provider %> </td>
+						<td> <%= mass_input.housing_plan %> </td>
+						<td> <%= mass_input.apartment_source %> </td>
+						<td>
+							<%= link_to 'Edit', edit_mass_input_path(mass_input) %>
+							<%= link_to 'Delete', mass_input_path(mass_input), method: :delete, data: {confirm: "Are you sure?"} %>
+						</td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	<% else %>
+		No Data Present
+	<% end %>
+</div>
